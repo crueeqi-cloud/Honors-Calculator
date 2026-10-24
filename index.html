@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0A3323" />
+    <meta name="color-scheme" content="light" />
+    <title>Honors Calculator</title>
+    <link rel="icon" type="image/png" href="assets/logo-icon-forest.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="site" id="app" data-screen="loading">
+      <header class="topbar">
+        <div class="wrap topbar__in">
+          <img
+            class="topbar__logo"
+            src="assets/logo-icon-forest.png"
+            alt=""
+            width="281"
+            height="195"
+          />
+          <span class="topbar__name">Honors Calculator</span>
+        </div>
+      </header>
+
+      <main class="screens">
+        <section
+          class="screen screen--loading"
+          data-screen="loading"
+          aria-label="Loading"
+        >
+          <div class="loading">
+            <img
+              class="logo--loading"
+              src="assets/logo-beige.png"
+              alt="Honors Calculator"
+              width="303"
+              height="295"
+            />
+            <div
+              class="loading__bar"
+              role="progressbar"
+              aria-label="Loading Honors Calculator"
+            >
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- info page -->
+        <section
+          class="screen"
+          data-screen="info"
+          aria-label="How the lists work"
+        >
+          <div class="wrap info">
+            <div class="info__intro">
+              <h1 class="info__title" tabindex="-1" data-focus>
+                Check your Dean’s List or President’s List chances
+              </h1>
+              <p class="info__lead">
+                Enter your grades and get your application letter, ready to
+                sign.
+              </p>
+              <button
+                type="button"
+                class="btn btn--primary btn--auto"
+                data-go="details"
+              >
+                Get Started
+              </button>
+            </div>
+
+            <aside class="panel" aria-label="List requirements">
+              <div class="tiles">
+                <div class="tile tile--pl">
+                  <span class="tile__label">President’s List</span>
+                  <strong class="tile__value">GWA 1.00 to 1.25</strong>
+                </div>
+                <div class="tile tile--dl">
+                  <span class="tile__label">Dean’s List</span>
+                  <strong class="tile__value">GWA 1.26 to 1.50</strong>
+                </div>
+              </div>
+
+              <p class="notice">
+                A grade of 2.00 or higher in any subject is not eligible for the
+                Dean’s or President’s List.
+              </p>
+
+              <h2 class="panel__h2">Grade equivalent</h2>
+              <table class="grades">
+                <caption class="sr-only">
+                  Percentage grade and its GWA equivalent
+                </caption>
+                <thead class="sr-only">
+                  <tr>
+                    <th scope="col">Percentage</th>
+                    <th scope="col">Equivalent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>98-100</td>
+                    <td>1.00</td>
+                  </tr>
+                  <tr>
+                    <td>95-97</td>
+                    <td>1.25</td>
+                  </tr>
+                  <tr>
+                    <td>92-94</td>
+                    <td>1.50</td>
+                  </tr>
+                  <tr>
+                    <td>89-91</td>
+                    <td>1.75</td>
+                  </tr>
+                  <tr>
+                    <td>88 and below</td>
+                    <td>2.00 and up is not eligible</td>
+                  </tr>
+                </tbody>
+              </table>
+            </aside>
+          </div>
+        </section>
+
+        <!-- details ng stud -->
+        <section class="screen" data-screen="details" aria-label="Your details">
+          <div class="wrap wrap--form page">
+            <button type="button" class="back" data-go="info" data-dir="back">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 12H5M11 5l-7 7 7 7" /></svg>
+              >Back
+            </button>
+            <h1 class="page__title" tabindex="-1" data-focus>
+              Enter your details
+            </h1>
+            <p class="page__sub">These go on your application letter.</p>
+
+            <form id="detailsForm" class="stack" novalidate>
+              <div class="field">
+                <label class="field__label" for="last-name">Last name</label>
+                <input
+                  class="input"
+                  id="last-name"
+                  name="last"
+                  type="text"
+                  autocomplete="family-name"
+                  placeholder="Last name"
+                />
+                <p class="field__msg" role="alert"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="first-name">First name</label>
+                <input
+                  class="input"
+                  id="first-name"
+                  name="first"
+                  type="text"
+                  autocomplete="given-name"
+                  placeholder="First name"
+                />
+                <p class="field__msg" role="alert"></p>
+              </div>
+              <div class="row">
+                <div class="field field--mi">
+                  <label class="field__label" for="middle-initial">M.I.</label>
+                  <input
+                    class="input"
+                    id="middle-initial"
+                    name="mi"
+                    type="text"
+                    maxlength="2"
+                    autocomplete="additional-name"
+                    placeholder="M.I."
+                  />
+                </div>
+                <div class="field field--grow">
+                  <label class="field__label" for="suffix">Suffix</label>
+                  <input
+                    class="input"
+                    id="suffix"
+                    name="suffix"
+                    type="text"
+                    maxlength="6"
+                    autocomplete="honorific-suffix"
+                    placeholder="Jr., III"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="year-level">Year level</label>
+                <select class="input input--select" id="year-level" name="year">
+                  <option value="" selected disabled>Choose</option>
+                  <option>1st year</option>
+                  <option>2nd year</option>
+                  <option>3rd year</option>
+                  <option>4th year</option>
+                </select>
+                <p class="field__msg" role="alert"></p>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="program">Program</label>
+                <input
+                  class="input input--readonly"
+                  id="program"
+                  name="program"
+                  type="text"
+                  value="BS Information Technology"
+                  readonly
+                />
+              </div>
+              <div class="field--full">
+                <button type="submit" class="btn btn--primary">
+                  Start computing
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- sub/grades -->
+        <section
+          class="screen"
+          data-screen="subjects"
+          aria-label="Enter your grades"
+        >
+          <div class="screen__body">
+            <div class="wrap wrap--mid page">
+              <button
+                type="button"
+                class="back"
+                data-go="details"
+                data-dir="back"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 12H5M11 5l-7 7 7 7" /></svg>
+                >Back
+              </button>
+              <h1 class="page__title" tabindex="-1" data-focus>
+                Enter your grades
+              </h1>
+              <p class="page__sub">Add every subject this semester.</p>
+              <p class="notice notice--light">
+                You need a minimum of 16 units to be a DL/PL Candidate.
+              </p>
+              <p class="form-error" id="subjects-msg" role="alert"></p>
+
+              <div id="subject-list" class="subjects"></div>
+
+              <button
+                type="button"
+                class="btn btn--ghost btn--auto"
+                id="add-subject"
+              >
+                + Add subject
+              </button>
+            </div>
+          </div>
+
+          <div class="dock">
+            <div class="wrap wrap--mid dock__in">
+              <div class="summary">
+                <span>Total units <strong id="total-units">0</strong></span>
+                <span class="summary__gwa"
+                  >Running GWA <strong id="running-gwa">—</strong></span
+                >
+              </div>
+              <button
+                type="button"
+                class="btn btn--primary btn--auto"
+                id="compute"
+              >
+                Compute GWA
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- result ng gwa -->
+        <section
+          class="screen"
+          data-screen="result"
+          aria-label="Your GWA result"
+        >
+          <div class="wrap result">
+            <div class="result__score">
+              <p class="result__label">Your GWA</p>
+              <h1 class="result__gwa" id="result-gwa" tabindex="-1" data-focus>
+                0.00
+              </h1>
+              <p class="badge" id="result-badge">Dean’s List candidate</p>
+              <p class="result__msg" id="result-msg"></p>
+            </div>
+
+            <div class="result__actions">
+              <div id="result-eligible">
+                <p class="result__action">
+                  Just print the PDF of your Application Letter, then sign it.
+                </p>
+                <p class="result__note">
+                  Don’t forget to attach a photocopy of your grades.
+                </p>
+                <button
+                  type="button"
+                  class="btn btn--primary"
+                  id="download-pdf"
+                >
+                  Download PDF
+                </button>
+              </div>
+
+              <div id="result-ineligible" hidden>
+                <p class="result__action">
+                  You can still change a grade or add a subject and compute
+                  again.
+                </p>
+                <button
+                  type="button"
+                  class="btn btn--primary"
+                  data-go="subjects"
+                  data-dir="back"
+                >
+                  Edit grades
+                </button>
+              </div>
+
+              <button type="button" class="btn btn--outline" id="sign-out">
+                Start over
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <!-- sub card -->
+    <template id="subject-template">
+      <div class="subject" role="group">
+        <div class="subject__top">
+          <label class="boxed boxed--grow">
+            <span>Course</span>
+            <input
+              type="text"
+              data-field="course"
+              maxlength="14"
+              autocomplete="off"
+              autocapitalize="characters"
+            />
+          </label>
+          <button
+            type="button"
+            class="subject__remove"
+            aria-label="Remove subject"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+        <label class="boxed">
+          <span>Units</span>
+          <select data-field="units">
+            <option value="" selected>Choose</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </label>
+        <label class="boxed">
+          <span>Grade</span>
+          <select data-field="grade">
+            <option value="" selected>Choose</option>
+            <option>1.00</option>
+            <option>1.25</option>
+            <option>1.50</option>
+            <option>1.75</option>
+            <option>2.00</option>
+            <option>2.25</option>
+            <option>2.50</option>
+            <option>2.75</option>
+            <option>3.00</option>
+            <option>5.00</option>
+          </select>
+        </label>
+        <label class="boxed boxed--full">
+          <span>Professor</span>
+          <input type="text" data-field="professor" autocomplete="off" />
+        </label>
+      </div>
+    </template>
+
+    <!-- application letter: diko na alam mga tina type ko bwiset  -->
+    <article class="letter" id="letter" aria-hidden="true">
+      <header class="letter__head">
+        <img class="letter__seal" src="assets/olivarez-seal.png" alt="" />
+        <p>
+          <strong>OLIVAREZ COLLEGE</strong><br /><strong
+            >Academic Year 2025-2026</strong
+          ><br /><strong>Second Semester</strong>
+        </p>
+      </header>
+
+      <p><strong>Dr. Pablo Olivarez</strong><br />President</p>
+      <p>Dear Sir,</p>
+      <p>Greetings of peace!</p>
+
+      <p class="letter__body">
+        May I humbly request your good office to please consider my application
+        for an academic scholarship under the
+        <strong><u>PRESIDENT'S/DEAN'S LISTER PROGRAM</u></strong> during the
+        <strong><u>SECOND SEMESTER</u></strong> of
+        <strong><u>SY 2025-2026</u></strong
+        >. Listed here under are my grades from the previous semester, with the
+        names of my respective professors as well as the computation of the
+        general weighted average:
+      </p>
+
+      <table class="letter__table">
+        <thead>
+          <tr>
+            <th>SUBJECTS</th>
+            <th>UNITS</th>
+            <th>GRADES</th>
+            <th>EQUIVALENT</th>
+            <th>PROFESSORS</th>
+          </tr>
+        </thead>
+        <tbody id="lt-rows"></tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td id="lt-total-units"></td>
+            <td></td>
+            <td id="lt-total-eq"></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p class="letter__computation">Computation:</p>
+      <div class="letter__calc">
+        <strong class="calc__gwa">GWA</strong>
+        <span>=</span>
+        <span class="calc__stack"
+          ><strong>Total Equivalent (Units x Grades)</strong
+          ><strong>Total No. of Academic Units</strong></span
+        >
+        <span>=</span>
+        <span class="calc__stack calc__stack--num"
+          ><strong id="lt-calc-eq"></strong><strong id="lt-calc-units"></strong
+        ></span>
+        <strong>General Weighted Average (GWA)</strong>
+        <span>=</span>
+        <strong id="lt-calc-gwa"></strong>
+      </div>
+
+      <p>
+        Attached here is a photocopy of my grades. I am hoping for your utmost
+        approval on this matter. Thank you very much!
+      </p>
+      <p>Respectfully yours,</p>
+      <p class="letter__student">
+        <strong id="lt-name"></strong><br /><span id="lt-year"></span>
+      </p>
+
+      <p class="letter__noted">Noted by:</p>
+      <div class="sign sign--1">
+        <div>
+          <span>Mr. Dennis M. Quinto</span
+          ><strong>Program Chair, Information Technology</strong>
+        </div>
+      </div>
+      <div class="sign sign--3">
+        <div>
+          <span>Mr. Lyssander Rodan Dela Cruz, CPA MBA DBA</span
+          ><strong>Dean, College of Corporate Management</strong>
+        </div>
+        <div><span>Dr. Rufina B. Verde</span><strong>Registrar</strong></div>
+        <div>
+          <span>Ms. Cynthia R. Acosta, RN MAN</span
+          ><strong>Director for Academic Affairs</strong>
+        </div>
+      </div>
+      <div class="sign sign--3">
+        <div>
+          <span>Dr. Eric L. Olivarez</span
+          ><strong>VP for Academics &amp; Services</strong>
+        </div>
+        <div>
+          <span>Ms. Francesca Bernice Olivarez-Ilas</span
+          ><strong>AVP for Finance &amp; Administration</strong>
+        </div>
+        <div>
+          <span>Ms. Evangeline Olivarez</span
+          ><strong>VP for Finance &amp; Administration</strong>
+        </div>
+      </div>
+    </article>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
