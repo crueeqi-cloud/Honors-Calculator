@@ -923,3 +923,33 @@ button:disabled {
     font-size: 8.5pt;
   }
 }
+.theme-toggle {
+  margin-left: auto;
+  padding: 8px 14px;
+  border: 1.5px solid var(--forest);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--forest);
+  font: 600 14px/1 var(--font-ui);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --beige: #0f1a15;
+  --paper: #16241d;
+  --forest: #f7f4d5;
+  --moss: #4f6130;
+  --rosy: #7d4a42;
+  --midnight: #5fb3c7;
+  --ink-soft: #b9c7b4;
+  --placeholder: #8fa393;
+  --readonly: #1d2e25;
+  --error: #f0a79c;
+  --tint-notice: rgba(95, 179, 199, 0.15);
+}
+html[data-theme="dark"] .screen--loading.is-active {
+  background: #0a3323; /* keep the loading screen dark */
+}
+html[data-theme="dark"] .notice {
+  background: rgba(15, 26, 21, 0.12);
+}

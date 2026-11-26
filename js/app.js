@@ -374,3 +374,25 @@
   go("loading");
   setTimeout(() => go("info"), reducedMotion ? 1200 : 2400);
 })();
+(function () {
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+
+  function apply(theme) {
+    const dark = theme === "dark";
+    root.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.textContent = dark ? "☀️ Light" : "🌙 Dark";
+    btn.setAttribute("aria-pressed", String(dark));
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem("theme"); } catch (e) {}
+  apply(saved === "dark" ? "dark" : "light");
+
+  btn.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    apply(next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
