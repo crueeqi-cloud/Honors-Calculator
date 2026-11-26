@@ -1,15 +1,15 @@
 :root {
-  --forest: #0a3323;
-  --moss: #839958;
-  --beige: #f7f4d5;
+  --forest: #2d1b4e;
+  --moss: #a78bda;
+  --beige: #f4effc;
   --rosy: #d3968c;
-  --midnight: #105666;
-  --paper: #fdfcee;
-  --ink-soft: #3e5a4b;
-  --placeholder: #58705f;
-  --readonly: #e3e8c4;
+  --midnight: #5b3fa6;
+  --paper: #fbf9ff;
+  --ink-soft: #5a4a78;
+  --placeholder: #6e5f8c;
+  --readonly: #e4daf5;
   --error: #8e3b31;
-  --tint-notice: rgba(16, 86, 102, 0.12);
+  --tint-notice: rgba(91, 63, 166, 0.12);
 
   --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Montserrat", "Inter", system-ui, sans-serif;
@@ -157,7 +157,7 @@ p {
   width: 150px;
   height: 4px;
   border-radius: 4px;
-  background: rgba(247, 244, 213, 0.18);
+  background: rgba(244, 239, 252, 0.18);
   overflow: hidden;
 }
 .loading__bar span {
@@ -208,8 +208,8 @@ p {
   outline: none;
   border-color: var(--midnight);
   box-shadow:
-    0 0 0 3px rgba(16, 86, 102, 0.28),
-    0 0 18px rgba(16, 86, 102, 0.28);
+    0 0 0 3px rgba(91, 63, 166, 0.28),
+    0 0 18px rgba(91, 63, 166, 0.28);
 }
 .input[aria-invalid="true"] {
   border-color: var(--error);
@@ -225,7 +225,7 @@ p {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg viewBox='0 0 24 24' fill='none' stroke='%230A3323' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg viewBox='0 0 24 24' fill='none' stroke='%232D1B4E ' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 20px;
@@ -233,7 +233,7 @@ p {
 }
 .input--readonly {
   background: var(--readonly);
-  border-color: rgba(10, 51, 35, 0.55);
+  border-color: rgba(45, 27, 78, 0.55);
   cursor: default;
 }
 .input--readonly:focus {
@@ -265,7 +265,7 @@ p {
 }
 
 button {
-  --glow: 131, 153, 88;
+  --glow: 167, 139, 218;
   font-family: inherit;
   cursor: pointer;
   transition:
@@ -326,7 +326,7 @@ button:disabled {
 .btn--ghost {
   background: var(--paper);
   color: var(--forest);
-  border: 1.5px solid rgba(10, 51, 35, 0.4);
+  border: 1.5px solid rgba(45, 27, 78, 0.4);
   font-weight: 600;
 }
 
@@ -417,7 +417,7 @@ button:disabled {
   padding: 12px 14px;
   border-radius: 10px;
   font-size: 14.5px;
-  background: rgba(247, 244, 213, 0.12);
+  background: rgba(244, 239, 252, 0.12);
 }
 .notice--light {
   margin-top: 16px;
@@ -438,7 +438,7 @@ button:disabled {
 }
 .grades td {
   padding: 12px 2px;
-  border-bottom: 1px solid rgba(247, 244, 213, 0.28);
+  border-bottom: 1px solid rgba(244, 239, 252, 0.28);
 }
 .grades tr:last-child td {
   border-bottom: 0;
@@ -494,7 +494,7 @@ button:disabled {
   gap: 8px;
   border: 1.5px solid var(--forest);
   border-radius: 16px;
-  background: rgba(253, 252, 238, 0.65);
+  background: rgba(251, 249, 255, 0.65);
 }
 .subject__top {
   grid-column: 1 / -1;
@@ -549,8 +549,8 @@ button:disabled {
 .boxed:focus-within {
   border-color: var(--midnight);
   box-shadow:
-    0 0 0 3px rgba(16, 86, 102, 0.28),
-    0 0 18px rgba(16, 86, 102, 0.28);
+    0 0 0 3px rgba(91, 63, 166, 0.28),
+    0 0 18px rgba(91, 63, 166, 0.28);
 }
 .boxed:has([aria-invalid="true"]) {
   border-color: var(--error);
@@ -682,8 +682,8 @@ button:disabled {
   font-weight: 600;
   text-align: center;
   box-shadow:
-    0 0 0 2px rgba(131, 153, 88, 0.7),
-    0 0 22px rgba(131, 153, 88, 0.55);
+    0 0 0 2px rgba(167, 139, 218, 0.7),
+    0 0 22px rgba(167, 139, 218, 0.55);
   opacity: 0;
   transform: translate(-50%, 12px);
   pointer-events: none;
