@@ -11,8 +11,8 @@
   --error: #8e3b31;
   --tint-notice: rgba(91, 63, 166, 0.12);
 
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Montserrat", "Inter", system-ui, sans-serif;
+  --font-ui: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
 
   --radius: 12px;
   --topbar: 60px;
